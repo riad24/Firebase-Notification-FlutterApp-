@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return iosDeviceInfo.identifierForVendor; // unique ID on iOS
     } else {
       AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
-      return androidDeviceInfo.androidId; // unique ID on Android
+      return androidDeviceInfo.device; // unique ID on Android
     }
   }
 
@@ -90,6 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
   update(String token) async {
     print(token);
     deviceId =  await _getId();
+    print('device name');
+    print(deviceId);
     deviceId ?? _showAlert(context);
     textValue = token;
     setState(() {});
